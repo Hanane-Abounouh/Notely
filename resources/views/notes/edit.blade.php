@@ -37,7 +37,7 @@
         </div>
         
         <div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Modifier</button>
+            <button type="submit" class="bg-[#4f4d4d] text-white px-4 py-2 rounded">Modifier</button>
         </div>
     </form>
 </div>

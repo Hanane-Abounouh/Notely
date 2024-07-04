@@ -33,10 +33,11 @@ class CategoryController extends Controller
     }
 
     public function edit(Category $category)
-    {
-        $this->authorize('update', $category); // Authorize user to edit category
-        return view('categories.edit', compact('category'));
-    }
+{
+    
+    return view('categories.edit', compact('category'));
+}
+
     public function update(Request $request, Category $category)
     {
         $this->authorize('update', $category); // Authorize user to update category
@@ -50,13 +51,29 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
+    public function show(Category $category, Request $request)
+    {
+        $search = $request->query('search');
+        $query = $category->notes()->where('user_id', auth()->id());
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'LIKE', "%{$search}%")
+                  ->orWhere('content', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $notes = $query->get();
+        return view('categories.show', compact('category', 'notes'));
+    }
 
     public function destroy(Category $category)
     {
-        $this->authorize('delete', $category); // Authorize user to delete category
+        // Remove authorization check
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
+    
 
 
 }

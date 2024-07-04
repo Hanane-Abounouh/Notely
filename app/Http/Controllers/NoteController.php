@@ -15,10 +15,12 @@ class NoteController extends Controller
      * @return \Illuminate\View\View
      */
     public function index()
+    
     {
-        $notes = Note::where('user_id', Auth::id())->paginate(10);
+        $notes = Note::where('user_id', Auth::id())->paginate(3);
         return view('notes.index', compact('notes'));
     }
+    
 
     /**
      * Affiche le formulaire de création de nouvelle note avec les catégories de l'utilisateur.

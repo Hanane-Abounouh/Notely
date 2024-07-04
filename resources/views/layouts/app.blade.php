@@ -14,14 +14,14 @@
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation') <!-- Inclure votre barre de navigation -->
+        @include('layouts.navigation') <!-- Include your navigation bar -->
 
         <div class="flex">
-            @include('layouts.sidebar') <!-- Inclure votre barre latérale -->
+            @include('layouts.sidebar') <!-- Include your sidebar -->
 
-            <!-- Contenu de la page -->
+            <!-- Page Content -->
             <main class="flex-1">
-                <!-- En-tête de page -->
+                <!-- Page Header -->
                 @if (isset($header))
                     <header class="bg-white shadow">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -30,12 +30,12 @@
                     </header>
                 @endif
 
-                <!-- Contenu principal de la page -->
+                <!-- Main Content -->
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 bg-white border-b border-gray-200">
-                                @yield('content') <!-- Contenu spécifique de la page -->
+                                @yield('content') <!-- Page specific content -->
                             </div>
                         </div>
                     </div>

@@ -52,7 +52,7 @@ Route::put('/categories/{category}', [CategoryController::class, 'update'])->nam
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 // routes/web.php
 
-Route::get('/categories/{id}', 'CategoryController@show')->name('categories.show');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 
 
