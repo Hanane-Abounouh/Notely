@@ -53,19 +53,27 @@ class CategoryController extends Controller
     }
     public function show(Category $category, Request $request)
     {
+        // Récupère le terme de recherche depuis la chaîne de requête de la requête
         $search = $request->query('search');
+    
+        // Requête pour récupérer les notes liées à la catégorie et à l'utilisateur actuel
         $query = $category->notes()->where('user_id', auth()->id());
-
+    
+        // Si un terme de recherche est fourni, filtre les notes par titre ou contenu correspondant au terme de recherche
         if ($search) {
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'LIKE', "%{$search}%")
                   ->orWhere('content', 'LIKE', "%{$search}%");
             });
         }
-
+    
+        // Récupère les notes filtrées
         $notes = $query->get();
+    
+        // Retourne la vue avec la catégorie et les notes filtrées
         return view('categories.show', compact('category', 'notes'));
     }
+
 
     public function destroy(Category $category)
     {

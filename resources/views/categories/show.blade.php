@@ -25,9 +25,9 @@
       
 
         <!-- Search Form -->
-        <form method="GET" action="{{ route('categories.show', $category->id) }}" class="search-form">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search notes..." value="{{ request()->query('search') }}">
+        <form method="GET" action="{{ route('categories.show', $category->id) }}" class="search-form mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search notes..." value="{{ request()->query('search') }}">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit">
                         <i class="fas fa-search"></i>

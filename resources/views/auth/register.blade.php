@@ -1,6 +1,7 @@
 <!-- resources/views/auth/register.blade.php -->
 
 <x-guest-layout>
+ 
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="form-container">
@@ -65,4 +66,6 @@
             </div>
         </div>
     </div>
+  
 </x-guest-layout>
+ 

@@ -18,6 +18,7 @@
             font-family: 'Raleway', sans-serif;
             -webkit-font-smoothing: antialiased;
             font-smoothing: antialiased;
+            background-image: url('/storage/images/bg.jpg');
         }
 
         /*---------------------
@@ -208,21 +209,22 @@
     <!-- Header section end -->
 
     <!-- Hero section -->
-    <section class="hero-section" style="background-image: url('/storage/images/bg.jpg');">
+    <section class="hero-section">
         <div class="container">
             <div class="hero-text text-white">
                 <h2>Manage Your Notes Efficiently with Notely</h2>
                 <p>Organize your thoughts, keep track of important tasks, and never miss a deadline. <br> Notely helps you stay productive and on top of your work.</p>
             </div>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 text-center">
-                    <button class="site-btn">Sign Up Now</button>
-                </div>
-            </div>
+             <div class="col-lg-10 offset-lg-1 text-center">
+          <a href="{{ route('login') }}" class="site-btn">Sign Up Now</a>
+             </div>
+</div>
+
         </div>
     </section>
     <!-- Hero section end -->
-
+    @include('layouts.footer') 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

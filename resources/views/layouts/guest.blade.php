@@ -19,6 +19,7 @@
     <style>
         body {
             font-family: 'Figtree', sans-serif;
+            background-image: url('/storage/images/bg.jpg');
         }
         .form-container {
             background: linear-gradient(#E9374C, #D31128);
@@ -91,12 +92,155 @@
                 padding: 20px;
             }
         }
+
+       
+    
+
+
+        .text-white h2,
+        .text-white p,
+        .text-white span,
+        .text-white li,
+        .text-white a {
+            color: #fff;
+        }
+
+        .rating i {
+            color: #fbb710;
+        }
+
+        .rating .is-fade {
+            color: #e0e3e4;
+        }
+
+        /*---------------------
+          Common elements
+        -----------------------*/
+
+        /* buttons */
+        .site-btn {
+            display: inline-block;
+            min-width: 196px;
+            text-align: center;
+            border: none;
+            padding: 15px 10px;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            color: #fff;
+            cursor: pointer;
+            background: #d82a4e;
+        }
+
+        .site-btn:hover {
+            color: #fff;
+        }
+
+        .site-btn.btn-dark {
+            background: #000;
+        }
+
+        .site-btn.btn-fade {
+            background: #e4edef;
+            color: #1f1f1f;
+        }
+
+        /*------------------
+          Header section
+        ---------------------*/
+        .header-section {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding-top: 60px;
+        }
+
+        .site-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .site-logo .part2{
+            color: #d82a4e;
+        }
+
+        .main-menu ul {
+            list-style: none;
+        }
+
+        .main-menu ul li {
+            display: inline;
+        }
+
+        .main-menu ul li a {
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            margin-left: 45px;
+            font-weight: 600;
+            padding: 20px 0 5px;
+        }
+
+        .main-menu ul li a:hover {
+            color: #d82a4e;
+        }
+
+        .header-btn {
+            float: right;
+            margin-right: 0;
+        }
+
+        .nav-switch {
+            display: none;
+        }
+
+        .intro-newslatter .site-btn {
+            min-width: 214px;
+        }
+
+        /* Custom CSS for spacing */
+        .header-btn + .header-btn {
+            margin-left: 10px;
+        }
     </style>
 </head>
-<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-    <div class="container">
+<body class="d-flex align-items-center justify-content-center " style="min-height: 100vh;">
+  <!-- Header section -->
+  <header class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="site-logo">
+                        <a href="/" class="d-flex align-items-center text-decoration-none text-white">
+                            <span class="h4 font-weight-bold mb-0">Note-</span>
+                            <span class="h4 font-weight-bold mb-0 part2 ">ly</span>
+                        </a>
+                    </div>
+                    <div class="nav-switch">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 text-right">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="site-btn header-btn">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="site-btn header-btn">Login</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="site-btn header-btn">Register</a>
+                            @endif
+                        @endauth
+                    @endif
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container ">
         {{ $slot }}
     </div>
+ 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
